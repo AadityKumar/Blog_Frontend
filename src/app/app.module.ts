@@ -1,16 +1,17 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ArticlesModule } from './articles/articles.module';
-import { StaticpagesModule } from './staticpages/staticpages.module';
-
+import {AccountserviceService} from './account/accountservice.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BannerComponent } from './banner/banner.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { ArticlesModule } from './articles/articles.module';
+import { StaticpagesModule } from './staticpages/staticpages.module';
+import {AccountModule} from './account/account.module';
 
 @NgModule({
   declarations: [
@@ -22,12 +23,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ArticlesModule,
     StaticpagesModule,
+    AccountModule,
     AppRoutingModule,
-    NgbModule
+    
   ],
-  providers: [],
+  providers: [AccountserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
